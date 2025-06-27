@@ -1,0 +1,494 @@
+@font-face {
+  font-family: 'SuperMario256';
+  src: url('fonts/super-mario-256.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'SuperMario256', Arial, sans-serif;
+  cursor: url('custom-cursor.svg') 16 16, auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+}
+
+.profile-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1f2937 0%, #000000 50%, #1f2937 100%);
+}
+
+.stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    opacity: 0.6;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}
+
+.top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #dc2626;
+}
+
+.volume-icon {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.volume-icon:hover {
+    background-color: rgba(55, 65, 81, 0.5);
+}
+
+.main-content {
+    text-align: center;
+    z-index: 10;
+    max-width: 400px;
+    padding: 0 16px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 48px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 340px;
+    max-width: 90vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 60%, rgba(255,255,255,0) 100%);
+    opacity: 0.7;
+    z-index: 1;
+    transition: opacity 0.3s;
+}
+
+.glass-card:hover .glass-reflection {
+    opacity: 1;
+}
+
+.profile-picture {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    margin-bottom: 16px;
+    transition: transform 0.2s cubic-bezier(.25,.8,.25,1);
+    will-change: transform;
+    z-index: 2;
+    perspective: 600px;
+    transition: box-shadow 0.2s, filter 0.2s;
+    /* box-shadow: 0 0 0 2px #a855f7, 0 0 12px 2px #a855f780; */
+}
+
+.profile-picture img {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.5);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+.profile-picture:hover {
+    /* box-shadow: 0 0 0 3px #a855f7, 0 0 24px 6px #a855f7cc; */
+    filter: brightness(1.1) saturate(1.1);
+}
+
+.username-section {
+    margin-bottom: 16px;
+}
+
+.username {
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.welcome-text {
+    color: #d1d5db;
+    font-size: 18px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #d1d5db;
+    margin-bottom: 24px;
+}
+
+.status-card {
+    background: rgba(31, 41, 55, 0.8);
+    border: 1px solid #374151;
+    border-radius: 16px;
+    margin: 0 auto 24px;
+    max-width: 320px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.status-content {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: linear-gradient(135deg, #6b7280, #9ca3af);
+    flex-shrink: 0;
+    box-shadow: 0 0 0 2px #a855f7, 0 0 12px 2px #a855f780;
+    transition: box-shadow 0.2s, filter 0.2s;
+}
+
+.status-avatar:hover {
+    box-shadow: 0 0 0 3px #a855f7, 0 0 24px 6px #a855f7cc;
+    filter: brightness(1.15) saturate(1.2);
+}
+
+.status-info {
+    flex: 1;
+    text-align: left;
+}
+
+.status-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.status-name span {
+    color: white;
+    font-weight: 600;
+}
+
+.checkmark {
+    color: #10b981;
+}
+
+.status-text {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.dnd-indicator {
+    background-color: #dc2626;
+    border-radius: 50%;
+    padding: 4px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s, filter 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.social-icons a:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.12);
+    box-shadow: 0 0 0 3px #a855f7, 0 0 24px 6px #a855f7cc;
+    filter: brightness(1.15) saturate(1.2);
+}
+
+.social-icons img, .social-icons svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.container {
+    max-width: 400px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(179,0,0,0.08);
+    padding: 2rem 1.5rem;
+}
+
+header h1 {
+    color: #b30000;
+    font-size: 2rem;
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    font-weight: 700;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #eee;
+    border: 3px solid #b30000;
+    box-shadow: 0 2px 8px rgba(179,0,0,0.05);
+}
+
+.info {
+    flex: 1;
+}
+
+#username {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    color: #b30000;
+}
+
+#status, #activity {
+    margin: 0.2rem 0;
+    color: #b30000;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+#discord-pfp {
+    border-radius: 50%;
+    border: 2px solid #7289da;
+    margin-bottom: 10px;
+}
+
+#discord-status, #discord-activity {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+/* 3D hover effect for pfp */
+.profile-picture {
+    perspective: 600px;
+}
+
+.profile-picture.tilt {
+    transition: transform 0.1s cubic-bezier(.25,.8,.25,1);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+.status-avatar.spin {
+  animation: spin 1.2s linear infinite;
+}
+
+.neon-bg-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 13vw;
+  font-family: 'SuperMario256', 'Segoe UI', Arial, sans-serif;
+  color: #a855f7;
+  opacity: 0.13;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.15em;
+  text-shadow:
+    0 0 16px #a855f7,
+    0 0 32px #a855f7,
+    0 0 64px #a855f7,
+    0 0 128px #a855f7;
+  z-index: 0;
+}
+
+.music-btn {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+  z-index: 10;
+  background: rgba(31, 41, 55, 0.95);
+  border: 3px solid #a855f7;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 32px 8px #a855f7cc, 0 0 64px 16px #a855f744;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
+  outline: none;
+  overflow: visible;
+}
+.music-btn:active {
+  transform: scale(0.92) rotate(-10deg);
+}
+.music-btn.noactive:active {
+  transform: none;
+}
+.music-btn.on {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: #a855f7;
+  box-shadow: 0 0 48px 16px #a855f7ee, 0 0 96px 24px #a855f7cc;
+}
+.music-btn.off {
+  background: rgba(31, 41, 55, 0.95);
+  border-color: #374151;
+  box-shadow: 0 0 12px 2px #37415180;
+  filter: grayscale(0.7) brightness(0.7);
+}
+.music-note {
+  font-size: 2.3em;
+  color: #fff;
+  transition: color 0.2s, filter 0.2s, text-shadow 0.2s;
+  text-shadow: 0 0 16px #a855f7, 0 0 32px #a855f7;
+}
+.music-btn.off .music-note {
+  color: #a855f7;
+  filter: grayscale(1) brightness(0.7);
+  text-shadow: none;
+}
+
+.music-volume-compartment {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0.7);
+  background: rgba(31,41,55,0.95);
+  border-radius: 16px;
+  box-shadow: 0 0 16px 2px #a855f7cc;
+  padding: 12px 18px;
+  margin-left: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  display: flex;
+  align-items: center;
+  min-width: 120px;
+  z-index: 20;
+}
+.music-btn:hover .music-volume-compartment,
+.music-btn:focus-within .music-volume-compartment {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scaleX(1);
+}
+#music-volume {
+  width: 90px;
+  accent-color: #a855f7;
+  background: transparent;
+  border-radius: 8px;
+  outline: none;
+  height: 4px;
+  margin: 0 0 0 0;
+  box-shadow: 0 0 8px #a855f7cc;
+  transition: box-shadow 0.2s;
+}
+#music-volume:focus {
+  box-shadow: 0 0 16px #a855f7cc;
+}
+
+.enter-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background: rgba(20, 20, 30, 0.7);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), visibility 0.6s cubic-bezier(.4,0,.2,1);
+}
+.enter-overlay.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.enter-glass-btn {
+  background: rgba(255,255,255,0.13);
+  border-radius: 24px;
+  box-shadow: 0 0 32px 8px #fff8, 0 0 64px 16px #a855f7cc;
+  border: 1.5px solid #fff6;
+  padding: 36px 64px;
+  font-size: 2.5rem;
+  color: #fff;
+  font-family: 'SuperMario256', 'Segoe UI', Arial, sans-serif;
+  text-shadow: 0 0 24px #fff, 0 0 48px #a855f7;
+  cursor: pointer;
+  user-select: none;
+  transition: box-shadow 0.2s, background 0.2s, transform 0.2s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.08em;
+}
+.enter-glass-btn:hover, .enter-glass-btn:focus {
+  background: rgba(255,255,255,0.22);
+  box-shadow: 0 0 48px 16px #fff, 0 0 96px 24px #a855f7cc;
+  transform: scale(1.04);
+}
