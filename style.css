@@ -492,3 +492,128 @@ header h1 {
   box-shadow: 0 0 48px 16px #fff, 0 0 96px 24px #a855f7cc;
   transform: scale(1.04);
 }
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .glass-card {
+    min-width: 220px;
+    max-width: 98vw;
+    padding: 32px 8vw 24px 8vw;
+  }
+  .profile-picture {
+    width: 96px;
+    height: 96px;
+  }
+  .profile-picture img {
+    width: 96px;
+    height: 96px;
+  }
+  .status-card {
+    max-width: 98vw;
+  }
+  .main-content {
+    max-width: 98vw;
+    padding: 0 2vw;
+  }
+  .neon-bg-text {
+    font-size: 10vw;
+  }
+  .music-btn {
+    width: 52px;
+    height: 52px;
+    top: 16px;
+    left: 16px;
+  }
+  .music-note {
+    font-size: 1.5em;
+  }
+  .music-volume-compartment {
+    min-width: 80px;
+    padding: 8px 10px;
+    margin-left: 8px;
+  }
+  #music-volume {
+    width: 60px;
+  }
+  .enter-glass-btn {
+    font-size: 1.3rem;
+    padding: 18px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .glass-card {
+    min-width: 0;
+    max-width: 100vw;
+    padding: 16px 2vw 12px 2vw;
+    border-radius: 12px;
+  }
+  .profile-picture {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+  }
+  .profile-picture img {
+    width: 64px;
+    height: 64px;
+  }
+  .username {
+    font-size: 1.1rem;
+  }
+  .status-card {
+    border-radius: 8px;
+    margin-bottom: 12px;
+    max-width: 100vw;
+  }
+  .status-content {
+    padding: 8px;
+    gap: 6px;
+  }
+  .status-avatar {
+    width: 28px;
+    height: 28px;
+  }
+  .social-icons {
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .social-icons a {
+    width: 32px;
+    height: 32px;
+  }
+  .social-icons img, .social-icons svg {
+    width: 20px;
+    height: 20px;
+  }
+  .neon-bg-text {
+    font-size: 14vw;
+    letter-spacing: 0.08em;
+  }
+  .music-btn {
+    width: 40px;
+    height: 40px;
+    top: 8px;
+    left: 8px;
+  }
+  .music-note {
+    font-size: 1.1em;
+  }
+  .music-volume-compartment {
+    min-width: 50px;
+    padding: 4px 6px;
+    margin-left: 4px;
+  }
+  #music-volume {
+    width: 36px;
+  }
+  .enter-glass-btn {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
