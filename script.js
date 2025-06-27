@@ -190,14 +190,4 @@ document.addEventListener('DOMContentLoaded', function() {
       pfp3d.classList.remove('tilt');
     });
   }
-  
-  // Side panel toggle logic
-  const sideArrow = document.getElementById('side-arrow');
-  const sidePanel = document.getElementById('side-panel');
-  if (sideArrow && sidePanel) {
-    sideArrow.addEventListener('click', function() {
-      sideArrow.classList.toggle('open');
-      sidePanel.classList.toggle('open');
-    });
-  }
 });
